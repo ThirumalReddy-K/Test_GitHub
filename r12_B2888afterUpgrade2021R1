@@ -1,0 +1,341 @@
+
+CREATE TYPE [standard string]
+	FROM VARCHAR(20) NULL
+go
+
+CREATE TYPE [standard number]
+	FROM INTEGER NULL
+go
+
+CREATE TYPE [first name]
+	FROM VARCHAR(20) NULL
+go
+
+CREATE TYPE [last name]
+	FROM VARCHAR(20) NULL
+go
+
+CREATE TYPE [address]
+	FROM VARCHAR(20) NULL
+go
+
+CREATE TYPE [director]
+	FROM VARCHAR(20) NULL
+go
+
+CREATE TYPE [city]
+	FROM VARCHAR(20) NULL
+go
+
+CREATE TYPE [manager]
+	FROM VARCHAR(20) NULL
+go
+
+CREATE TYPE [state]
+	FROM VARCHAR(20) NULL
+go
+
+CREATE TYPE [title]
+	FROM VARCHAR(20) NULL
+go
+
+CREATE TYPE [zip code]
+	FROM INTEGER NULL
+go
+
+CREATE TYPE [phone]
+	FROM INTEGER NULL
+go
+
+CREATE TYPE [address 2]
+	FROM VARCHAR(20) NULL
+go
+
+CREATE RULE [Movie_genre]
+	AS @col IN ('AA', 'AN', 'CO', 'DO', 'DR', 'FA', 'CL', 'HO', 'MY', 'SF', 'WS')
+go
+
+CREATE TABLE [CUST]
+( 
+	[CUST address]       [address] ,
+	[CUST city]          [city] ,
+	[CUST first name]    [first name] ,
+	[CUST last name]     [last name] ,
+	[CUST state]         [state] ,
+	[CUST zip code]      [zip code] ,
+	[email]              varchar  NULL ,
+	[CUST number]        integer  NOT NULL 
+)
+go
+
+CREATE TABLE [CUST CREDIT]
+( 
+	[credit card]        integer  NULL ,
+	[credit card exp]    integer  NULL ,
+	[status code]        varchar(20)  NULL ,
+	[CUST number]        integer  NOT NULL 
+)
+go
+
+CREATE TABLE [EMP]
+( 
+	[EMP first name]     [first name] ,
+	[EMP address]        [address] ,
+	[EMP phone]          [phone] ,
+	[store number]       integer  NULL ,
+	[EMP address 2]      [address 2] ,
+	[email]              varchar(20)  NULL ,
+	[salary]             integer  NULL ,
+	[hire date]          datetime  NULL ,
+	[soc sec number]     integer  NULL ,
+	[EMP number]         varchar(20)  NOT NULL ,
+	[supervisor]         varchar(20)  NOT NULL 
+)
+go
+
+CREATE TABLE [MO RENT REC]
+( 
+	[rental date]        datetime  NULL ,
+	[due date]           datetime  NULL ,
+	[rental status]      varchar(20)  NULL ,
+	[payment transaction number] integer  NULL ,
+	[overdue charge]     integer  NULL ,
+	[rental rate]        integer  NULL ,
+	[EMP phone]          [phone]  NOT NULL ,
+	[soc sec number]     integer  NOT NULL ,
+	[rental record date] datetime  NOT NULL ,
+	[mo co num]          integer  NOT NULL ,
+	[movie number]       integer  NOT NULL ,
+	[CUST number]        integer  NOT NULL 
+)
+go
+
+CREATE TABLE [MOVIE]
+( 
+	[movie title]        [title] ,
+	[movie director]     [director] ,
+	[description]        varchar(20)  NULL ,
+	[star 1 name]        [first name] ,
+	[rating]             varchar  NULL ,
+	[star 2 name]        [first name] ,
+	[movie number]       integer  NOT NULL ,
+	[genre]              char  NULL ,
+	[rental rate]        numeric  NULL ,
+	[movie url]          varchar  NULL ,
+	[movie clip]         varbinary  NULL 
+)
+go
+
+CREATE TABLE [MOVIE COPY]
+( 
+	[general condition]  varchar(20)  NULL ,
+	[movie format]       varchar(20)  NULL ,
+	[mo co num]          integer  NOT NULL ,
+	[movie number]       integer  NOT NULL 
+)
+go
+
+CREATE TABLE [MOVIE_STORE]
+( 
+	[movie number]       integer  NOT NULL ,
+	[store number]       integer  NOT NULL 
+)
+go
+
+CREATE TABLE [PAYMENT]
+( 
+	[payment transaction number] integer  NOT NULL ,
+	[payment type]       char(18)  NULL ,
+	[payment amount]     numeric  NULL ,
+	[payment date]       datetime  NULL ,
+	[payment status]     varchar(1)  NULL ,
+	[EMP number]         varchar(20)  NOT NULL ,
+	[CUST number]        integer  NULL ,
+	[customer no]        integer  NULL ,
+	[check bank number]  integer  NULL ,
+	[check number]       integer  NULL ,
+	[epay vendor number] integer  NULL ,
+	[epay account number] integer  NULL ,
+	[credit card number] char(18)  NULL ,
+	[credit card exp]    datetime  NULL ,
+	[credit card type]   char(18)  NULL 
+)
+go
+
+CREATE TABLE [STORE]
+( 
+	[store manager]      [manager] ,
+	[store address]      [address] ,
+	[store address 2]    [address 2] ,
+	[store phone]        [phone] ,
+	[store city]         [city] ,
+	[store state]        [state] ,
+	[store zip code]     [zip code] ,
+	[store number]       integer  NOT NULL 
+)
+go
+
+ALTER TABLE [CUST]
+	ADD CONSTRAINT [XPKCUSTOMER] PRIMARY KEY  CLUSTERED ([CUST number] ASC)
+go
+
+ALTER TABLE [CUST]
+	ADD CONSTRAINT [XAK1CUSTOMER] UNIQUE ([CUST address]  ASC)
+go
+
+CREATE NONCLUSTERED INDEX [XIE1CUSTOMER] ON [CUST]
+( 
+	[CUST last name]      ASC
+)
+go
+
+ALTER TABLE [CUST CREDIT]
+	ADD CONSTRAINT [XPKCUSTOMER CREDIT] PRIMARY KEY  CLUSTERED ([CUST number] ASC)
+go
+
+ALTER TABLE [EMP]
+	ADD CONSTRAINT [XPKEMPLOYEE] PRIMARY KEY  CLUSTERED ([EMP number] ASC)
+go
+
+ALTER TABLE [EMP]
+	ADD CONSTRAINT [XAK1EMPLOYEE] UNIQUE ([soc sec number]  ASC,[EMP phone]  ASC)
+go
+
+CREATE NONCLUSTERED INDEX [XIE1EMPLOYEE] ON [EMP]
+( 
+	[EMP first name]      ASC
+)
+go
+
+ALTER TABLE [MO RENT REC]
+	ADD CONSTRAINT [XPKMOVIE RENTAL RECORD] PRIMARY KEY  CLUSTERED ([rental record date] ASC,[mo co num] ASC,[movie number] ASC,[soc sec number] ASC,[EMP phone] ASC,[CUST number] ASC)
+go
+
+ALTER TABLE [MOVIE]
+	ADD CONSTRAINT [XPKMOVIE] PRIMARY KEY  CLUSTERED ([movie number] ASC)
+go
+
+ALTER TABLE [MOVIE]
+	ADD CONSTRAINT [XAK1MOVIE] UNIQUE ([movie title]  ASC)
+go
+
+ALTER TABLE [MOVIE COPY]
+	ADD CONSTRAINT [XPKMOVIE COPY] PRIMARY KEY  CLUSTERED ([mo co num] ASC,[movie number] ASC)
+go
+
+ALTER TABLE [MOVIE_STORE]
+	ADD CONSTRAINT [XPKMOVIE_STORE] PRIMARY KEY  CLUSTERED ([movie number] ASC,[store number] ASC)
+go
+
+ALTER TABLE [PAYMENT]
+	ADD CONSTRAINT [XPKPAYMENT] PRIMARY KEY  CLUSTERED ([payment transaction number] ASC)
+go
+
+ALTER TABLE [STORE]
+	ADD CONSTRAINT [XPKSTORE] PRIMARY KEY  CLUSTERED ([store number] ASC)
+go
+
+CREATE NONCLUSTERED INDEX [XIE1STORE] ON [STORE]
+( 
+	[store manager]       ASC
+)
+go
+
+CREATE VIEW [CUSTOMER_INVOICE]([credit card],[credit card exp],[status code],[CUST number],[CUST address],[email],[CUST city],[CUST first name],[CUST last name],[CUST state],[CUST zip code],[rental record date],[mo co num],[movie number],[rental date],[due date],[rental status],[overdue charge],[rental rate],[movie title],[Overdue_Charge_Rate])
+AS
+SELECT ALL [CUST CREDIT].[credit card],[CUST CREDIT].[credit card exp],[CUST CREDIT].[status code],[CUST].[CUST number],[CUST].[CUST address],[CUST].[email],[CUST].[CUST city],[CUST].[CUST first name],[CUST].[CUST last name],[CUST].[CUST state],[CUST].[CUST zip code],[MO RENT REC].[rental record date],[MO RENT REC].[mo co num],[MO RENT REC].[movie number],[MO RENT REC].[rental date],[MO RENT REC].[due date],[MO RENT REC].[rental status],[MO RENT REC].[overdue charge],[MO RENT REC].[rental rate],[MOVIE].[movie title],rental_rate * 1.5
+	FROM [CUST CREDIT],[CUST],[MO RENT REC],[MOVIE]
+go
+
+CREATE VIEW [OVERDUE_NOTICE]([credit card],[credit card exp],[status code],[Overdue_Charge_Rate],[CUST number],[CUST address],[email],[CUST city],[CUST first name],[CUST last name],[CUST state],[CUST zip code],[rental record date],[mo co num],[movie number],[rental date],[due date],[rental status],[overdue charge],[rental rate])
+AS
+SELECT ALL [CUST CREDIT].[credit card],[CUST CREDIT].[credit card exp],[CUST CREDIT].[status code],rental_rate * 1.5,[CUST].[CUST number],[CUST].[CUST address],[CUST].[email],[CUST].[CUST city],[CUST].[CUST first name],[CUST].[CUST last name],[CUST].[CUST state],[CUST].[CUST zip code],[MO RENT REC].[rental record date],[MO RENT REC].[mo co num],[MO RENT REC].[movie number],[MO RENT REC].[rental date],[MO RENT REC].[due date],[MO RENT REC].[rental status],[MO RENT REC].[overdue charge],[MO RENT REC].[rental rate]
+	FROM [CUST CREDIT],[CUST],[MO RENT REC]
+go
+
+
+ALTER TABLE [EMP]
+	ADD CONSTRAINT [employs_is] FOREIGN KEY ([store number]) REFERENCES [STORE]([store number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+ALTER TABLE [EMP]
+	ADD CONSTRAINT [reports_to] FOREIGN KEY ([supervisor]) REFERENCES [EMP]([EMP number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+ALTER TABLE [MO RENT REC]
+	ADD CONSTRAINT [completes] FOREIGN KEY ([soc sec number],[EMP phone]) REFERENCES [EMP]([soc sec number],[EMP phone])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+ALTER TABLE [MO RENT REC]
+	ADD CONSTRAINT [is_rented_under] FOREIGN KEY ([mo co num],[movie number]) REFERENCES [MOVIE COPY]([mo co num],[movie number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+ALTER TABLE [MO RENT REC]
+	ADD CONSTRAINT [R_8_1] FOREIGN KEY ([CUST number]) REFERENCES [CUST]([CUST number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+ALTER TABLE [MO RENT REC]
+	ADD CONSTRAINT [R_8_2] FOREIGN KEY ([CUST number]) REFERENCES [CUST CREDIT]([CUST number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+ALTER TABLE [MO RENT REC]
+	ADD CONSTRAINT [is_made_on] FOREIGN KEY ([payment transaction number]) REFERENCES [PAYMENT]([payment transaction number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+exec sp_bindrule '[Movie_genre]', '[MOVIE].[genre]'
+go
+
+
+ALTER TABLE [MOVIE COPY]
+	ADD CONSTRAINT [is_rented_as] FOREIGN KEY ([movie number]) REFERENCES [MOVIE]([movie number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+ALTER TABLE [MOVIE_STORE]
+	ADD CONSTRAINT [rents] FOREIGN KEY ([movie number]) REFERENCES [MOVIE]([movie number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+ALTER TABLE [MOVIE_STORE]
+	ADD CONSTRAINT [is in] FOREIGN KEY ([store number]) REFERENCES [STORE]([store number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+
+ALTER TABLE [PAYMENT]
+	ADD CONSTRAINT [receives] FOREIGN KEY ([EMP number]) REFERENCES [EMP]([EMP number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+ALTER TABLE [PAYMENT]
+	ADD CONSTRAINT [R_7_1] FOREIGN KEY ([customer no]) REFERENCES [CUST]([CUST number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go
+
+ALTER TABLE [PAYMENT]
+	ADD CONSTRAINT [R_7_2] FOREIGN KEY ([CUST number]) REFERENCES [CUST CREDIT]([CUST number])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go

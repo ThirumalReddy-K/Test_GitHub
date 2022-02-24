@@ -1,0 +1,30 @@
+
+CREATE TABLE [Test tab2]
+( 
+	[test12]             char(18)  NOT NULL ,
+	[tes345]             char(18)  NULL ,
+	[tab_col1]           varbinary  NOT NULL 
+)
+go
+
+CREATE TABLE [Test_Tab1]
+( 
+	[tab_col1]           varbinary  NOT NULL ,
+	[tab_col2]           char(18)  NULL 
+)
+go
+
+ALTER TABLE [Test tab2]
+	ADD CONSTRAINT [XPKTest tab2] PRIMARY KEY  CLUSTERED ([test12] ASC,[tab_col1] ASC)
+go
+
+ALTER TABLE [Test_Tab1]
+	ADD CONSTRAINT [XPKTest_Tab1] PRIMARY KEY  CLUSTERED ([tab_col1] ASC)
+go
+
+
+ALTER TABLE [Test tab2]
+	ADD CONSTRAINT [R_1] FOREIGN KEY ([tab_col1]) REFERENCES [Test_Tab1]([tab_col1])
+		ON DELETE NO ACTION
+		ON UPDATE NO ACTION
+go

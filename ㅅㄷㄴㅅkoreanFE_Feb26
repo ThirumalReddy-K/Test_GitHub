@@ -1,0 +1,185 @@
+
+CREATE TABLE tst_dts
+(
+	wefew                CHAR(18)  NOT NULL ,
+	ㄷㄱㅎㄱ듀           CHAR(18)  NOT NULL ,
+	be_ere_ev            CHAR(18)  NOT NULL ,
+	ㄴㅇㄴㅇ_ㄴㅇ        CHAR(18)  NULL ,
+	ㅣㅏㅑ슉듀           CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKtest_details ON tst_dts
+(wefew   ASC,ㄷㄱㅎㄱ듀   ASC,be_ere_ev   ASC);
+
+ALTER TABLE tst_dts
+	ADD CONSTRAINT  XPKtest_details PRIMARY KEY (wefew,ㄷㄱㅎㄱ듀,be_ere_ev);
+
+CREATE TABLE ㅈㄷㄷ쥬
+(
+	ㅎㅈㄷㅎ_ㅈㄷ        CHAR(18)  NOT NULL ,
+	ㄱㄷㅎㅈ             CHAR(18)  NOT NULL ,
+	ㅈ                   CHAR(18)  NOT NULL ,
+	wefew                CHAR(18)  NULL ,
+	ㄷㄱㅎㄱ듀           CHAR(18)  NULL ,
+	be_ere_ev            CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅈㄷㄷ쥬 ON ㅈㄷㄷ쥬
+(ㅎㅈㄷㅎ_ㅈㄷ   ASC,ㄱㄷㅎㅈ   ASC,ㅈ   ASC);
+
+ALTER TABLE ㅈㄷㄷ쥬
+	ADD CONSTRAINT  XPKㅈㄷㄷ쥬 PRIMARY KEY (ㅎㅈㄷㅎ_ㅈㄷ,ㄱㄷㅎㅈ,ㅈ);
+
+CREATE TABLE ㅂㅁ
+(
+	ㅂㅁ                 CHAR(18)  NOT NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅂㅁㅋㅌㄵ ON ㅂㅁ
+(ㅂㅁ   ASC);
+
+ALTER TABLE ㅂㅁ
+	ADD CONSTRAINT  XPKㅂㅁㅋㅌㄵ PRIMARY KEY (ㅂㅁ);
+
+CREATE TABLE ㅅ뮤ㅣㄷ_1
+(
+	ㅅ뮤_채ㅣ1           CHAR(18)  NOT NULL ,
+	ㅅ뮤_ㅊㅐㅣ2         CHAR(18)  NOT NULL ,
+	뮻ㅇ                 CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅅ뮤ㅣㄷ_1 ON ㅅ뮤ㅣㄷ_1
+(ㅅ뮤_채ㅣ1   ASC,ㅅ뮤_ㅊㅐㅣ2   ASC);
+
+ALTER TABLE ㅅ뮤ㅣㄷ_1
+	ADD CONSTRAINT  XPKㅅ뮤ㅣㄷ_1 PRIMARY KEY (ㅅ뮤_채ㅣ1,ㅅ뮤_ㅊㅐㅣ2);
+
+CREATE TABLE ㅠㄱㄷㄱ
+(
+	ㅗㄱ                 CHAR(18)  NOT NULL ,
+	ㄷㄱㅎㄱㄷ           CHAR(18)  NOT NULL ,
+	ㅅ뮤_채ㅣ1           CHAR(18)  NOT NULL ,
+	ㅅ뮤_ㅊㅐㅣ2         CHAR(18)  NOT NULL ,
+	ㄷㄱㅎ               CHAR(18)  NULL ,
+	ㄷㄱㅎㄱㄷㄷㅅㅈㄷ   CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅠㄱㄷㄱ ON ㅠㄱㄷㄱ
+(ㅗㄱ   ASC,ㄷㄱㅎㄱㄷ   ASC,ㅅ뮤_채ㅣ1   ASC,ㅅ뮤_ㅊㅐㅣ2   ASC);
+
+ALTER TABLE ㅠㄱㄷㄱ
+	ADD CONSTRAINT  XPKㅠㄱㄷㄱ PRIMARY KEY (ㅗㄱ,ㄷㄱㅎㄱㄷ,ㅅ뮤_채ㅣ1,ㅅ뮤_ㅊㅐㅣ2);
+
+CREATE TABLE ㄱㄷㅅㄷㄱ
+(
+	ㄱㄷㄱㄷ             CHAR(18)  NOT NULL ,
+	ㅅ굗ㄱㄷㄷ           CHAR(18)  NOT NULL ,
+	ㅅ굑소               CHAR(18)  NOT NULL ,
+	ㅅ뮤_채ㅣ1           CHAR(18)  NOT NULL ,
+	ㅅ뮤_ㅊㅐㅣ2         CHAR(18)  NOT NULL ,
+	ㄱ쇽ㅎㄷㄱ           CHAR(18)  NULL ,
+	ㄷㄱㅎㄱㄷㄷㅈ       CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㄱㄷㅅㄷㄱ ON ㄱㄷㅅㄷㄱ
+(ㄱㄷㄱㄷ   ASC,ㅅ굗ㄱㄷㄷ   ASC,ㅅ굑소   ASC,ㅅ뮤_채ㅣ1   ASC,ㅅ뮤_ㅊㅐㅣ2   ASC);
+
+ALTER TABLE ㄱㄷㅅㄷㄱ
+	ADD CONSTRAINT  XPKㄱㄷㅅㄷㄱ PRIMARY KEY (ㄱㄷㄱㄷ,ㅅ굗ㄱㄷㄷ,ㅅ굑소,ㅅ뮤_채ㅣ1,ㅅ뮤_ㅊㅐㅣ2);
+
+CREATE TABLE ㅅ뮤ㅣㄷ_2
+(
+	ㅅ뮤_ㅊㅐㅣ3         CHAR(18)  NOT NULL ,
+	ㅅ뮤ㅣㄷ_ㅊㅐㅣ7     CHAR(18)  NOT NULL ,
+	ㅠㅜㅡㅓㅏㅕ         CHAR(18)  NULL ,
+	ㅣ픙ㄷㄹㄷㅈㄹ       CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅅ뮤ㅣㄷ_2 ON ㅅ뮤ㅣㄷ_2
+(ㅅ뮤_ㅊㅐㅣ3   ASC,ㅅ뮤ㅣㄷ_ㅊㅐㅣ7   ASC);
+
+ALTER TABLE ㅅ뮤ㅣㄷ_2
+	ADD CONSTRAINT  XPKㅅ뮤ㅣㄷ_2 PRIMARY KEY (ㅅ뮤_ㅊㅐㅣ3,ㅅ뮤ㅣㄷ_ㅊㅐㅣ7);
+
+CREATE TABLE ㄱㄷㅎㄱㄷㅈㅎㄷ
+(
+	ㄱ굗ㅈㄷㅎ           CHAR(18)  NOT NULL ,
+	ㄷ굑ㄷ               CHAR(18)  NOT NULL ,
+	ㅅ뮤_ㅊㅐㅣ3         CHAR(18)  NOT NULL ,
+	ㅅ뮤ㅣㄷ_ㅊㅐㅣ7     CHAR(18)  NOT NULL ,
+	ㄷ굗규               CHAR(18)  NULL ,
+	ㄷㄱㄷㄱㄷㅈㅈ       CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㄱㄷㅎㄱㄷㅈㅎㄷ ON ㄱㄷㅎㄱㄷㅈㅎㄷ
+(ㄱ굗ㅈㄷㅎ   ASC,ㄷ굑ㄷ   ASC,ㅅ뮤_ㅊㅐㅣ3   ASC,ㅅ뮤ㅣㄷ_ㅊㅐㅣ7   ASC);
+
+ALTER TABLE ㄱㄷㅎㄱㄷㅈㅎㄷ
+	ADD CONSTRAINT  XPKㄱㄷㅎㄱㄷㅈㅎㄷ PRIMARY KEY (ㄱ굗ㅈㄷㅎ,ㄷ굑ㄷ,ㅅ뮤_ㅊㅐㅣ3,ㅅ뮤ㅣㄷ_ㅊㅐㅣ7);
+
+CREATE TABLE ㅕㅛㅏㅛㅕㅣ쇼
+(
+	ㅕㅛㅑㅅ             CHAR(18)  NOT NULL ,
+	굗ㄷ셕셔             CHAR(18)  NOT NULL ,
+	ㄱ쇽                 CHAR(18)  NOT NULL ,
+	됴교                 CHAR(18)  NULL ,
+	굗겫겨격셧겨         CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅕㅛㅏㅛㅕㅣ쇼 ON ㅕㅛㅏㅛㅕㅣ쇼
+(ㅕㅛㅑㅅ   ASC,굗ㄷ셕셔   ASC,ㄱ쇽   ASC);
+
+ALTER TABLE ㅕㅛㅏㅛㅕㅣ쇼
+	ADD CONSTRAINT  XPKㅕㅛㅏㅛㅕㅣ쇼 PRIMARY KEY (ㅕㅛㅑㅅ,굗ㄷ셕셔,ㄱ쇽);
+
+CREATE TABLE ㅠㅎㅈㄷㅎ
+(
+	ㄷㅍㄷㄱㅍㅈ         CHAR(18)  NOT NULL ,
+	ㄷㄱ퓯               CHAR(18)  NOT NULL ,
+	ㅈㄷㄹㅈㅍ           CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅠㅎㅈㄷㅎ ON ㅠㅎㅈㄷㅎ
+(ㄷㅍㄷㄱㅍㅈ   ASC,ㄷㄱ퓯   ASC);
+
+ALTER TABLE ㅠㅎㅈㄷㅎ
+	ADD CONSTRAINT  XPKㅠㅎㅈㄷㅎ PRIMARY KEY (ㄷㅍㄷㄱㅍㅈ,ㄷㄱ퓯);
+
+CREATE TABLE ㅕㅛㅏㅛㅕㅣ쇼_ㅠㅎㅈㄷㅎ
+(
+	ㅕㅛㅑㅅ             CHAR(18)  NOT NULL ,
+	굗ㄷ셕셔             CHAR(18)  NOT NULL ,
+	ㄱ쇽                 CHAR(18)  NOT NULL ,
+	ㄷㅍㄷㄱㅍㅈ         CHAR(18)  NOT NULL ,
+	ㄷㄱ퓯               CHAR(18)  NOT NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅕㅛㅏㅛㅕㅣ쇼_ㅠㅎㅈㄷㅎ ON ㅕㅛㅏㅛㅕㅣ쇼_ㅠㅎㅈㄷㅎ
+(ㅕㅛㅑㅅ   ASC,굗ㄷ셕셔   ASC,ㄱ쇽   ASC,ㄷㅍㄷㄱㅍㅈ   ASC,ㄷㄱ퓯   ASC);
+
+ALTER TABLE ㅕㅛㅏㅛㅕㅣ쇼_ㅠㅎㅈㄷㅎ
+	ADD CONSTRAINT  XPKㅕㅛㅏㅛㅕㅣ쇼_ㅠㅎㅈㄷㅎ PRIMARY KEY (ㅕㅛㅑㅅ,굗ㄷ셕셔,ㄱ쇽,ㄷㅍㄷㄱㅍㅈ,ㄷㄱ퓯);
+
+ALTER TABLE ㅈㄷㄷ쥬
+	ADD (
+CONSTRAINT R_7 FOREIGN KEY (wefew, ㄷㄱㅎㄱ듀, be_ere_ev) REFERENCES tst_dts (wefew, ㄷㄱㅎㄱ듀, be_ere_ev));
+
+ALTER TABLE ㅠㄱㄷㄱ
+	ADD (
+CONSTRAINT R_1 FOREIGN KEY (ㅅ뮤_채ㅣ1, ㅅ뮤_ㅊㅐㅣ2) REFERENCES ㅅ뮤ㅣㄷ_1 (ㅅ뮤_채ㅣ1, ㅅ뮤_ㅊㅐㅣ2) ON DELETE CASCADE);
+
+ALTER TABLE ㄱㄷㅅㄷㄱ
+	ADD (
+CONSTRAINT R_2 FOREIGN KEY (ㅅ뮤_채ㅣ1, ㅅ뮤_ㅊㅐㅣ2) REFERENCES ㅅ뮤ㅣㄷ_1 (ㅅ뮤_채ㅣ1, ㅅ뮤_ㅊㅐㅣ2) ON DELETE CASCADE);
+
+ALTER TABLE ㄱㄷㅎㄱㄷㅈㅎㄷ
+	ADD (
+CONSTRAINT R_3 FOREIGN KEY (ㅅ뮤_ㅊㅐㅣ3, ㅅ뮤ㅣㄷ_ㅊㅐㅣ7) REFERENCES ㅅ뮤ㅣㄷ_2 (ㅅ뮤_ㅊㅐㅣ3, ㅅ뮤ㅣㄷ_ㅊㅐㅣ7));
+
+ALTER TABLE ㅕㅛㅏㅛㅕㅣ쇼_ㅠㅎㅈㄷㅎ
+	ADD (
+CONSTRAINT R_5 FOREIGN KEY (ㅕㅛㅑㅅ, 굗ㄷ셕셔, ㄱ쇽) REFERENCES ㅕㅛㅏㅛㅕㅣ쇼 (ㅕㅛㅑㅅ, 굗ㄷ셕셔, ㄱ쇽));
+
+ALTER TABLE ㅕㅛㅏㅛㅕㅣ쇼_ㅠㅎㅈㄷㅎ
+	ADD (
+CONSTRAINT R_6 FOREIGN KEY (ㄷㅍㄷㄱㅍㅈ, ㄷㄱ퓯) REFERENCES ㅠㅎㅈㄷㅎ (ㄷㅍㄷㄱㅍㅈ, ㄷㄱ퓯));

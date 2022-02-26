@@ -183,3 +183,16 @@ CONSTRAINT R_5 FOREIGN KEY (ㅕㅛㅑㅅ, 굗ㄷ셕셔, ㄱ쇽) REFERENCES ㅕ�
 ALTER TABLE ㅕㅛㅏㅛㅕㅣ쇼_ㅠㅎㅈㄷㅎ
 	ADD (
 CONSTRAINT R_6 FOREIGN KEY (ㄷㅍㄷㄱㅍㅈ, ㄷㄱ퓯) REFERENCES ㅠㅎㅈㄷㅎ (ㄷㅍㄷㄱㅍㅈ, ㄷㄱ퓯));
+
+
+CREATE TABLE ㅅㄷㄴㅅ456
+(
+	ㅅㄷㄴㅅㄺㄷㅎㅇ     CHAR(18)  NOT NULL ,
+	ㄷㄹㄷㄹㅈ두ㅗㄷㄱ   CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅅㄷㄴㅅ456 ON ㅅㄷㄴㅅ456
+(ㅅㄷㄴㅅㄺㄷㅎㅇ   ASC);
+
+ALTER TABLE ㅅㄷㄴㅅ456
+ADD CONSTRAINT  XPKㅅㄷㄴㅅ456 PRIMARY KEY (ㅅㄷㄴㅅㄺㄷㅎㅇ);

@@ -1,0 +1,170 @@
+
+CREATE TABLE ㄷㄱ쟈ㅜ
+(
+	ㅠㅊ                 CHAR(18)  NOT NULL ,
+	ㅊㅊ                 CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㄷㄱ쟈ㅜ ON ㄷㄱ쟈ㅜ
+(ㅠㅊ   ASC);
+
+ALTER TABLE ㄷㄱ쟈ㅜ
+	ADD CONSTRAINT  XPKㄷㄱ쟈ㅜ PRIMARY KEY (ㅠㅊ);
+
+CREATE TABLE ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ
+(
+	ㄷㅡㅔ_ㅜㅕㅡ        CHAR(18)  NOT NULL ,
+	ㄷㅡㅔ_ㅜ믇          CHAR(18)  NULL ,
+	ㄷㅡㅔ_ㅁㅇㅇㄱㄷㄴㄴ CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ ON ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ
+(ㄷㅡㅔ_ㅜㅕㅡ   ASC);
+
+ALTER TABLE ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ
+	ADD CONSTRAINT  XPKㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ PRIMARY KEY (ㄷㅡㅔ_ㅜㅕㅡ);
+
+CREATE TABLE ㅂㅈㄷㅈㅂㅂㅈㄴㅇㄹ_ㅗㅠㄹ둊ㄷㅈㄷㅈㅈ
+(
+	ㅈㄷ룾댜ㅕ롣져ㅑㄹ   CHAR(18)  NOT NULL ,
+	ㅈ다ㅓㄹㄷ젛ㄹㄷ조ㅓㄹㄷ조ㅓ CHAR(18)  NOT NULL ,
+	ㅡㄷ지ㅏㅜㅍㄷ저ㅏ롲다ㅓㅗ CHAR(18)  NOT NULL ,
+	ㅈ라ㅗㅕㄷ저ㅏㅠ폊ㄷ CHAR(18)  NULL ,
+	ㅝ가두_ㅈ다ㅕ롣ㅈ_ㅕㅈ롣_ㅏㅕ졸_ㅕㅈ로 CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅂㅈㄷㅈㅂㅂㅈㄴㅇㄹ_ㅗㅠㄹ둊ㄷㅈㄷㅈㅈ ON ㅂㅈㄷㅈㅂㅂㅈㄴㅇㄹ_ㅗㅠㄹ둊ㄷㅈㄷㅈㅈ
+(ㅈㄷ룾댜ㅕ롣져ㅑㄹ   ASC,ㅈ다ㅓㄹㄷ젛ㄹㄷ조ㅓㄹㄷ조ㅓ   ASC,ㅡㄷ지ㅏㅜㅍㄷ저ㅏ롲다ㅓㅗ   ASC);
+
+ALTER TABLE ㅂㅈㄷㅈㅂㅂㅈㄴㅇㄹ_ㅗㅠㄹ둊ㄷㅈㄷㅈㅈ
+	ADD CONSTRAINT  XPKㅂㅈㄷㅈㅂㅂㅈㄴㅇㄹ_ㅗㅠㄹ둊ㄷㅈㄷㅈㅈ PRIMARY KEY (ㅈㄷ룾댜ㅕ롣져ㅑㄹ,ㅈ다ㅓㄹㄷ젛ㄹㄷ조ㅓㄹㄷ조ㅓ,ㅡㄷ지ㅏㅜㅍㄷ저ㅏ롲다ㅓㅗ);
+
+CREATE TABLE ㅅㄷㄴㅅ_ㅇㄷㅅ먀ㅣㄴ
+(
+	ㅅㄷㄴㅅ_ㅑㅇ        CHAR(18)  NOT NULL ,
+	ㅅㄷㄴㅅ_ㅜ믇_ㅁㅈㄴㅂ__ㄴㅇㄹㅇ CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅅㄷㄴㅅ_ㅇㄷㅅ먀ㅣㄴ ON ㅅㄷㄴㅅ_ㅇㄷㅅ먀ㅣㄴ
+(ㅅㄷㄴㅅ_ㅑㅇ   ASC);
+
+ALTER TABLE ㅅㄷㄴㅅ_ㅇㄷㅅ먀ㅣㄴ
+	ADD CONSTRAINT  XPKㅅㄷㄴㅅ_ㅇㄷㅅ먀ㅣㄴ PRIMARY KEY (ㅅㄷㄴㅅ_ㅑㅇ);
+
+CREATE TABLE ㅜㅠㅠㅡㅓㅗㅇ
+(
+	ㅜㅠㅠㄹ_ㅡ_ㅓ       CHAR(18)  NOT NULL ,
+	ㅜㅍ_ㅜㅎㅀ          CHAR(18)  NULL ,
+	ㅅㄷㄴㅅ_ㅑㅇ        CHAR(18)  NOT NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅜㅠㅠㅡㅓㅗㅇ ON ㅜㅠㅠㅡㅓㅗㅇ
+(ㅜㅠㅠㄹ_ㅡ_ㅓ   ASC,ㅅㄷㄴㅅ_ㅑㅇ   ASC);
+
+ALTER TABLE ㅜㅠㅠㅡㅓㅗㅇ
+	ADD CONSTRAINT  XPKㅜㅠㅠㅡㅓㅗㅇ PRIMARY KEY (ㅜㅠㅠㄹ_ㅡ_ㅓ,ㅅㄷㄴㅅ_ㅑㅇ);
+
+CREATE TABLE 바탕_화면
+(
+	바탕_화면2           CHAR(18)  NOT NULL ,
+	바탕_화면4           CHAR(18)  NULL ,
+	소ㅑ그미12           CHAR(18)  NOT NULL 
+);
+
+CREATE UNIQUE INDEX XPK바탕_화면 ON 바탕_화면
+(바탕_화면2   ASC,소ㅑ그미12   ASC);
+
+ALTER TABLE 바탕_화면
+	ADD CONSTRAINT  XPK바탕_화면 PRIMARY KEY (바탕_화면2,소ㅑ그미12);
+
+CREATE TABLE 쇼ㅕㄱ
+(
+	ㅈㄷㄹㄷㅈ           CHAR(18)  NOT NULL ,
+	ㅇㅊㅈㄷㄱㄷ3ㄱ      CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPK쇼ㅕㄱ ON 쇼ㅕㄱ
+(ㅈㄷㄹㄷㅈ   ASC);
+
+ALTER TABLE 쇼ㅕㄱ
+	ADD CONSTRAINT  XPK쇼ㅕㄱ PRIMARY KEY (ㅈㄷㄹㄷㅈ);
+
+CREATE TABLE ㄷㄱ쟈ㅜ_쇼ㅕㄱ
+(
+	ㅠㅊ                 CHAR(18)  NOT NULL ,
+	ㅈㄷㄹㄷㅈ           CHAR(18)  NOT NULL 
+);
+
+CREATE UNIQUE INDEX XPKㄷㄱ쟈ㅜ_쇼ㅕㄱ ON ㄷㄱ쟈ㅜ_쇼ㅕㄱ
+(ㅠㅊ   ASC,ㅈㄷㄹㄷㅈ   ASC);
+
+ALTER TABLE ㄷㄱ쟈ㅜ_쇼ㅕㄱ
+	ADD CONSTRAINT  XPKㄷㄱ쟈ㅜ_쇼ㅕㄱ PRIMARY KEY (ㅠㅊ,ㅈㄷㄹㄷㅈ);
+
+CREATE TABLE 퓰오휴롷
+(
+	퓨로ㅓㅀ             CHAR(18)  NOT NULL ,
+	퓨ㅗㄹ호ㅓㄱㄷㄱ     CHAR(18)  NULL ,
+	바탕_화면2           CHAR(18)  NOT NULL ,
+	소ㅑ그미12           CHAR(18)  NOT NULL 
+);
+
+CREATE UNIQUE INDEX XPK퓰오휴롷 ON 퓰오휴롷
+(퓨로ㅓㅀ   ASC,바탕_화면2   ASC,소ㅑ그미12   ASC);
+
+ALTER TABLE 퓰오휴롷
+	ADD CONSTRAINT  XPK퓰오휴롷 PRIMARY KEY (퓨로ㅓㅀ,바탕_화면2,소ㅑ그미12);
+
+CREATE TABLE 퓨ㅜㅗㅜㅗㅎ
+(
+	ㅠㅍㄹ루휴로류ㅡㅗ   CHAR(18)  NOT NULL ,
+	ㅇ루ㅗㅎ휴헛ㅅㄱ     CHAR(18)  NULL ,
+	ㅅㄷㄴㅅ_ㅑㅇ        CHAR(18)  NOT NULL 
+);
+
+CREATE UNIQUE INDEX XPK퓨ㅜㅗㅜㅗㅎ ON 퓨ㅜㅗㅜㅗㅎ
+(ㅠㅍㄹ루휴로류ㅡㅗ   ASC,ㅅㄷㄴㅅ_ㅑㅇ   ASC);
+
+ALTER TABLE 퓨ㅜㅗㅜㅗㅎ
+	ADD CONSTRAINT  XPK퓨ㅜㅗㅜㅗㅎ PRIMARY KEY (ㅠㅍㄹ루휴로류ㅡㅗ,ㅅㄷㄴㅅ_ㅑㅇ);
+
+CREATE TABLE ㅐㅣ사ㅑㅅ
+(
+	ㅏㅣㅑㅐㅑㅐ         CHAR(18)  NOT NULL ,
+	ㅣㅏㅐㅕㅏ쉣         CHAR(18)  NULL ,
+	ㄷㅡㅔ_ㅜㅕㅡ        CHAR(18)  NULL 
+);
+
+CREATE UNIQUE INDEX XPKㅐㅣ사ㅑㅅ ON ㅐㅣ사ㅑㅅ
+(ㅏㅣㅑㅐㅑㅐ   ASC);
+
+ALTER TABLE ㅐㅣ사ㅑㅅ
+	ADD CONSTRAINT  XPKㅐㅣ사ㅑㅅ PRIMARY KEY (ㅏㅣㅑㅐㅑㅐ);
+
+ALTER TABLE ㅂㅈㄷㅈㅂㅂㅈㄴㅇㄹ_ㅗㅠㄹ둊ㄷㅈㄷㅈㅈ
+	ADD (
+CONSTRAINT R_6 FOREIGN KEY (ㅈㄷ룾댜ㅕ롣져ㅑㄹ, ㅈ다ㅓㄹㄷ젛ㄹㄷ조ㅓㄹㄷ조ㅓ, ㅡㄷ지ㅏㅜㅍㄷ저ㅏ롲다ㅓㅗ) REFERENCES ㅂㅈㄷㅈㅂㅂㅈㄴㅇㄹ_ㅗㅠㄹ둊ㄷㅈㄷㅈㅈ (ㅈㄷ룾댜ㅕ롣져ㅑㄹ, ㅈ다ㅓㄹㄷ젛ㄹㄷ조ㅓㄹㄷ조ㅓ, ㅡㄷ지ㅏㅜㅍㄷ저ㅏ롲다ㅓㅗ) ON DELETE SET NULL);
+
+ALTER TABLE ㅜㅠㅠㅡㅓㅗㅇ
+	ADD (
+CONSTRAINT R_7 FOREIGN KEY (ㅅㄷㄴㅅ_ㅑㅇ) REFERENCES ㅅㄷㄴㅅ_ㅇㄷㅅ먀ㅣㄴ (ㅅㄷㄴㅅ_ㅑㅇ) ON DELETE CASCADE);
+
+ALTER TABLE ㄷㄱ쟈ㅜ_쇼ㅕㄱ
+	ADD (
+CONSTRAINT R_3 FOREIGN KEY (ㅠㅊ) REFERENCES ㄷㄱ쟈ㅜ (ㅠㅊ));
+
+ALTER TABLE ㄷㄱ쟈ㅜ_쇼ㅕㄱ
+	ADD (
+CONSTRAINT R_4 FOREIGN KEY (ㅈㄷㄹㄷㅈ) REFERENCES 쇼ㅕㄱ (ㅈㄷㄹㄷㅈ));
+
+ALTER TABLE 퓰오휴롷
+	ADD (
+CONSTRAINT R_1 FOREIGN KEY (바탕_화면2, 소ㅑ그미12) REFERENCES 바탕_화면 (바탕_화면2, 소ㅑ그미12));
+
+ALTER TABLE 퓨ㅜㅗㅜㅗㅎ
+	ADD (
+CONSTRAINT R_8 FOREIGN KEY (ㅅㄷㄴㅅ_ㅑㅇ) REFERENCES ㅅㄷㄴㅅ_ㅇㄷㅅ먀ㅣㄴ (ㅅㄷㄴㅅ_ㅑㅇ) ON DELETE CASCADE);
+
+ALTER TABLE ㅐㅣ사ㅑㅅ
+	ADD (
+CONSTRAINT R_5 FOREIGN KEY (ㄷㅡㅔ_ㅜㅕㅡ) REFERENCES ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ (ㄷㅡㅔ_ㅜㅕㅡ) ON DELETE SET NULL);

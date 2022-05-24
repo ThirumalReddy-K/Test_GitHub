@@ -168,3 +168,283 @@ CONSTRAINT R_8 FOREIGN KEY (ㅅㄷㄴㅅ_ㅑㅇ) REFERENCES ㅅㄷㄴㅅ_ㅇㄷ�
 ALTER TABLE ㅐㅣ사ㅑㅅ
 	ADD (
 CONSTRAINT R_5 FOREIGN KEY (ㄷㅡㅔ_ㅜㅕㅡ) REFERENCES ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ (ㄷㅡㅔ_ㅜㅕㅡ) ON DELETE SET NULL);
+
+
+ALTER TABLE ㅐㅣ사ㅑㅅ
+DROP CONSTRAINT R_5;
+
+ALTER TABLE 퓰오휴롷
+DROP CONSTRAINT R_1;
+
+ALTER TABLE ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ
+DROP PRIMARY KEY CASCADE  DROP INDEX;
+
+ALTER TABLE 바탕_화면
+DROP PRIMARY KEY CASCADE  DROP INDEX;
+
+ALTER TABLE 퓰오휴롷
+DROP PRIMARY KEY CASCADE  DROP INDEX;
+
+ALTER TABLE ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ RENAME TO ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ65ON1841006;
+
+ALTER TABLE 바탕_화면 RENAME TO 바탕_화면65ON1841007;
+
+ALTER TABLE 퓰오휴롷 RENAME TO 퓰오휴롷65ON1841008;
+
+ALTER TABLE ㅐㅣ사ㅑㅅ
+	ADD (소ㅑ겨ㅡ미123 CHAR(18) );
+
+CREATE TABLE ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ
+(
+	ㄷㅡㅔ_ㅜㅕㅡ        CHAR(18)  NOT NULL ,
+	ㄷㅡㅔ_ㅜ믇          CHAR(18)  NULL ,
+	ㄷㅡㅔ_ㅁㅇㅇㄱㄷㄴㄴ CHAR(18)  NULL ,
+	소ㅑ겨ㅡ미123        CHAR(18)  NOT NULL 
+);
+
+CREATE UNIQUE INDEX XPKㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ ON ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ
+(ㄷㅡㅔ_ㅜㅕㅡ   ASC,소ㅑ겨ㅡ미123   ASC);
+
+CREATE TABLE 바탕_화면
+(
+	바탕_화면2           CHAR(18)  NOT NULL ,
+	바탕_화면4           CHAR(18)  NULL ,
+	소ㅑ그미12           CHAR(18)  NOT NULL 
+);
+
+CREATE UNIQUE INDEX XPK바탕_화면 ON 바탕_화면
+(바탕_화면2   ASC,소ㅑ그미12   ASC);
+
+CREATE TABLE 퓰오휴롷
+(
+	퓨로ㅓㅀ             CHAR(18)  NOT NULL ,
+	퓨ㅗㄹ호ㅓㄱㄷㄱ     CHAR(18)  NULL ,
+	바탕_화면2           CHAR(18)  NOT NULL ,
+	소ㅑ그미12           CHAR(18)  NOT NULL 
+);
+
+CREATE UNIQUE INDEX XPK퓰오휴롷 ON 퓰오휴롷
+(퓨로ㅓㅀ   ASC,바탕_화면2   ASC,소ㅑ그미12   ASC);
+
+ALTER TABLE ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ
+ADD CONSTRAINT  XPKㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ PRIMARY KEY (ㄷㅡㅔ_ㅜㅕㅡ,소ㅑ겨ㅡ미123);
+
+INSERT INTO ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ (ㄷㅡㅔ_ㅜㅕㅡ, ㄷㅡㅔ_ㅜ믇, ㄷㅡㅔ_ㅁㅇㅇㄱㄷㄴㄴ) SELECT ㄷㅡㅔ_ㅜㅕㅡ, ㄷㅡㅔ_ㅜ믇, ㄷㅡㅔ_ㅁㅇㅇㄱㄷㄴㄴ FROM ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ65ON1841006;
+
+ALTER TABLE 바탕_화면
+ADD CONSTRAINT  XPK바탕_화면 PRIMARY KEY (바탕_화면2,소ㅑ그미12);
+
+INSERT INTO 바탕_화면 (바탕_화면2, 바탕_화면4) SELECT 바탕_화면2, 바탕_화면4 FROM 바탕_화면65ON1841007;
+
+ALTER TABLE 퓰오휴롷
+ADD CONSTRAINT  XPK퓰오휴롷 PRIMARY KEY (퓨로ㅓㅀ,바탕_화면2,소ㅑ그미12);
+
+INSERT INTO 퓰오휴롷 (퓨로ㅓㅀ, 바탕_화면2, 퓨ㅗㄹ호ㅓㄱㄷㄱ) SELECT 퓨로ㅓㅀ, 바탕_화면2, 퓨ㅗㄹ호ㅓㄱㄷㄱ FROM 퓰오휴롷65ON1841008;
+
+ALTER TABLE ㅐㅣ사ㅑㅅ
+ADD 
+CONSTRAINT R_5 FOREIGN KEY (ㄷㅡㅔ_ㅜㅕㅡ, 소ㅑ겨ㅡ미123) REFERENCES ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ (ㄷㅡㅔ_ㅜㅕㅡ, 소ㅑ겨ㅡ미123) ON DELETE SET NULL;
+
+ALTER TABLE 퓰오휴롷
+ADD 
+CONSTRAINT R_1 FOREIGN KEY (바탕_화면2, 소ㅑ그미12) REFERENCES 바탕_화면 (바탕_화면2, 소ㅑ그미12);
+
+CREATE  TRIGGER  tD_ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ AFTER DELETE ON ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ for each row
+-- erwin Builtin Trigger
+-- DELETE trigger on ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* erwin Builtin Trigger */
+    /* ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ  ㅐㅣ사ㅑㅅ on parent delete set null */
+    /* ERWIN_RELATION:CHECKSUM="0000f322", PARENT_OWNER="", PARENT_TABLE="ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ"
+    CHILD_OWNER="", CHILD_TABLE="ㅐㅣ사ㅑㅅ"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_5", FK_COLUMNS="ㄷㅡㅔ_ㅜㅕㅡ""소ㅑ겨ㅡ미123" */
+    UPDATE ㅐㅣ사ㅑㅅ
+      SET
+        /* %SetFK(ㅐㅣ사ㅑㅅ,NULL) */
+        ㅐㅣ사ㅑㅅ.ㄷㅡㅔ_ㅜㅕㅡ = NULL,
+        ㅐㅣ사ㅑㅅ.소ㅑ겨ㅡ미123 = NULL
+      WHERE
+        /* %JoinFKPK(ㅐㅣ사ㅑㅅ,:%Old," = "," AND") */
+        ㅐㅣ사ㅑㅅ.ㄷㅡㅔ_ㅜㅕㅡ = :old.ㄷㅡㅔ_ㅜㅕㅡ AND
+        ㅐㅣ사ㅑㅅ.소ㅑ겨ㅡ미123 = :old.소ㅑ겨ㅡ미123;
+
+
+-- erwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ AFTER UPDATE ON ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ for each row
+-- erwin Builtin Trigger
+-- UPDATE trigger on ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ  ㅐㅣ사ㅑㅅ on parent update set null */
+  /* ERWIN_RELATION:CHECKSUM="00013d32", PARENT_OWNER="", PARENT_TABLE="ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ"
+    CHILD_OWNER="", CHILD_TABLE="ㅐㅣ사ㅑㅅ"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_5", FK_COLUMNS="ㄷㅡㅔ_ㅜㅕㅡ""소ㅑ겨ㅡ미123" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.ㄷㅡㅔ_ㅜㅕㅡ <> :new.ㄷㅡㅔ_ㅜㅕㅡ OR 
+    :old.소ㅑ겨ㅡ미123 <> :new.소ㅑ겨ㅡ미123
+  THEN
+    UPDATE ㅐㅣ사ㅑㅅ
+      SET
+        /* %SetFK(ㅐㅣ사ㅑㅅ,NULL) */
+        ㅐㅣ사ㅑㅅ.ㄷㅡㅔ_ㅜㅕㅡ = NULL,
+        ㅐㅣ사ㅑㅅ.소ㅑ겨ㅡ미123 = NULL
+      WHERE
+        /* %JoinFKPK(ㅐㅣ사ㅑㅅ,:%Old," = ",",") */
+        ㅐㅣ사ㅑㅅ.ㄷㅡㅔ_ㅜㅕㅡ = :old.ㄷㅡㅔ_ㅜㅕㅡ AND
+        ㅐㅣ사ㅑㅅ.소ㅑ겨ㅡ미123 = :old.소ㅑ겨ㅡ미123;
+  END IF;
+
+
+-- erwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER  tD_바탕_화면 AFTER DELETE ON 바탕_화면 for each row
+-- erwin Builtin Trigger
+-- DELETE trigger on 바탕_화면 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* erwin Builtin Trigger */
+    /* 바탕_?면  퓰오휴롷 on parent delete restrict */
+    /* ERWIN_RELATION:CHECKSUM="00010427", PARENT_OWNER="", PARENT_TABLE="바탕_?면"
+    CHILD_OWNER="", CHILD_TABLE="퓰오휴롷"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_1", FK_COLUMNS="바탕_?면2""소ㅑ그미12" */
+    SELECT count(*) INTO NUMROWS
+      FROM 퓰오휴롷
+      WHERE
+        /*  %JoinFKPK(퓰오휴롷,:%Old," = "," AND") */
+        퓰오휴롷.바탕_?면2 = :old.바탕_?면2 AND
+        퓰오휴롷.소ㅑ그미12 = :old.소ㅑ그미12;
+    IF (NUMROWS > 0)
+    THEN
+      raise_application_error(
+        -20001,
+        'Cannot delete 바탕_?면 because 퓰오휴롷 exists.'
+      );
+    END IF;
+
+
+-- erwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_바탕_화면 AFTER UPDATE ON 바탕_화면 for each row
+-- erwin Builtin Trigger
+-- UPDATE trigger on 바탕_화면 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* erwin Builtin Trigger */
+  /* 바탕_?면  퓰오휴롷 on parent update restrict */
+  /* ERWIN_RELATION:CHECKSUM="00013030", PARENT_OWNER="", PARENT_TABLE="바탕_?면"
+    CHILD_OWNER="", CHILD_TABLE="퓰오휴롷"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_1", FK_COLUMNS="바탕_?면2""소ㅑ그미12" */
+  IF
+    /* %JoinPKPK(:%Old,:%New," <> "," OR ") */
+    :old.바탕_?면2 <> :new.바탕_?면2 OR 
+    :old.소ㅑ그미12 <> :new.소ㅑ그미12
+  THEN
+    SELECT count(*) INTO NUMROWS
+      FROM 퓰오휴롷
+      WHERE
+        /*  %JoinFKPK(퓰오휴롷,:%Old," = "," AND") */
+        퓰오휴롷.바탕_?면2 = :old.바탕_?면2 AND
+        퓰오휴롷.소ㅑ그미12 = :old.소ㅑ그미12;
+    IF (NUMROWS > 0)
+    THEN 
+      raise_application_error(
+        -20005,
+        'Cannot update 바탕_?면 because 퓰오휴롷 exists.'
+      );
+    END IF;
+  END IF;
+
+
+-- erwin Builtin Trigger
+END;
+/
+
+
+CREATE  TRIGGER tI_퓰오휴롷 BEFORE INSERT ON 퓰오휴롷 for each row
+-- erwin Builtin Trigger
+-- INSERT trigger on 퓰오휴롷 
+DECLARE NUMROWS INTEGER;
+BEGIN
+    /* erwin Builtin Trigger */
+    /* 바탕_?면  퓰오휴롷 on child insert restrict */
+    /* ERWIN_RELATION:CHECKSUM="00010c26", PARENT_OWNER="", PARENT_TABLE="바탕_?면"
+    CHILD_OWNER="", CHILD_TABLE="퓰오휴롷"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_1", FK_COLUMNS="바탕_?면2""소ㅑ그미12" */
+    SELECT count(*) INTO NUMROWS
+      FROM 바탕_?면
+      WHERE
+        /* %JoinFKPK(:%New,바탕_?면," = "," AND") */
+        :new.바탕_?면2 = 바탕_?면.바탕_?면2 AND
+        :new.소ㅑ그미12 = 바탕_?면.소ㅑ그미12;
+    IF (
+      /* %NotnullFK(:%New," IS NOT NULL AND") */
+      
+      NUMROWS = 0
+    )
+    THEN
+      raise_application_error(
+        -20002,
+        'Cannot insert 퓰오휴롷 because 바탕_?면 does not exist.'
+      );
+    END IF;
+
+
+-- erwin Builtin Trigger
+END;
+/
+
+CREATE  TRIGGER tU_퓰오휴롷 AFTER UPDATE ON 퓰오휴롷 for each row
+-- erwin Builtin Trigger
+-- UPDATE trigger on 퓰오휴롷 
+DECLARE NUMROWS INTEGER;
+BEGIN
+  /* erwin Builtin Trigger */
+  /* 바탕_?면  퓰오휴롷 on child update restrict */
+  /* ERWIN_RELATION:CHECKSUM="00011109", PARENT_OWNER="", PARENT_TABLE="바탕_?면"
+    CHILD_OWNER="", CHILD_TABLE="퓰오휴롷"
+    P2C_VERB_PHRASE="", C2P_VERB_PHRASE="", 
+    FK_CONSTRAINT="R_1", FK_COLUMNS="바탕_?면2""소ㅑ그미12" */
+  SELECT count(*) INTO NUMROWS
+    FROM 바탕_?면
+    WHERE
+      /* %JoinFKPK(:%New,바탕_?면," = "," AND") */
+      :new.바탕_?면2 = 바탕_?면.바탕_?면2 AND
+      :new.소ㅑ그미12 = 바탕_?면.소ㅑ그미12;
+  IF (
+    /* %NotnullFK(:%New," IS NOT NULL AND") */
+    
+    NUMROWS = 0
+  )
+  THEN
+    raise_application_error(
+      -20007,
+      'Cannot update 퓰오휴롷 because 바탕_?면 does not exist.'
+    );
+  END IF;
+
+
+-- erwin Builtin Trigger
+END;
+/
+
+
+DROP TABLE ㄷㅡㅔㅣㅐㅛㄷㄷ_ㅇㄷㅅ먀ㅣㄴ65ON1841006 CASCADE CONSTRAINTS PURGE;
+
+DROP TABLE 바탕_화면65ON1841007 CASCADE CONSTRAINTS PURGE;
+
+DROP TABLE 퓰오휴롷65ON1841008 CASCADE CONSTRAINTS PURGE;
